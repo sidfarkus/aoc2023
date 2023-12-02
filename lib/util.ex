@@ -6,10 +6,20 @@ defmodule Util do
   def supersplit(input, split_on, options \\ []) do
     unless empty?(split_on) do
       {pattern, rest} = pop_at(split_on, 0)
-      map(split(input, pattern, options), &(supersplit(&1, rest)))
+      splits = split(input, pattern, options)
+      if length(splits) > 1 do
+        map(splits, &(supersplit(&1, rest, options)))
+      else
+        supersplit(input, rest, options)
+      end
     else
-      input
+      String.trim(input)
     end
+  end
+
+  def debug(val, msg) do
+    IO.puts(String.replace(msg, "DBG: {val}", val))
+    val
   end
 
   def grid(width, height, initial_value) when is_function(initial_value) do

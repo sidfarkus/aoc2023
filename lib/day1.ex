@@ -27,7 +27,7 @@ defmodule Aoc.Day1 do
         String.replace(Map.keys(num_map) |> Enum.map(&(String.reverse(&1))), &(to_string(num_map[String.reverse(&1)])), global: false)
       [first, last] |>
         Enum.map(&(String.replace(&1, ~r"[^0-9]", ""))) |>
-        then(fn([f <> rest, l <> rest]) -> f <> l end) |>
+        then(fn [f, l] -> String.first(f) <> String.first(l) end) |>
         String.to_integer()
     end) |>
     Enum.sum()

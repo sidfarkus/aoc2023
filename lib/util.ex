@@ -7,10 +7,11 @@ defmodule Util do
     unless empty?(split_on) do
       {pattern, rest} = pop_at(split_on, 0)
       splits = split(input, pattern, options)
+      IO.puts("IN #{input} => #{inspect(splits)}")
       if length(splits) > 1 do
-        map(splits, &(supersplit(&1, rest, options)))
+        map(splits, &(supersplit(String.trim(&1), rest, options)))
       else
-        supersplit(input, rest, options)
+        String.trim(List.first(splits)) |> supersplit(rest, options)
       end
     else
       String.trim(input)
@@ -18,7 +19,7 @@ defmodule Util do
   end
 
   def debug(val, msg) do
-    IO.puts(String.replace(msg, "DBG: {val}", val))
+    IO.puts(String.replace("DBG: #{msg}", "{val}", val))
     val
   end
 

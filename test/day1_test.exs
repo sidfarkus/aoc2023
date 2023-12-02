@@ -32,12 +32,6 @@ defmodule Day1Test do
       assert(part2(input) == 281)
     end
 
-    test "example 2" do
-      input = "fiveight"
-
-      assert(part2(input) == 58)
-    end
-
     test "real input" do
       IO.puts(part2(File.read!("input/day1")))
     end

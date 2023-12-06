@@ -1,0 +1,5 @@
+%{
+  "parallel_stream": {:hex, :parallel_stream, "1.1.0", "f52f73eb344bc22de335992377413138405796e0d0ad99d995d9977ac29f1ca9", [:mix], [], "hexpm", "684fd19191aedfaf387bbabbeb8ff3c752f0220c8112eb907d797f4592d6e871"},
+  "pelemay_fp": {:hex, :pelemay_fp, "0.1.2", "6ddb0fb8e91c75f490b12ddb69fd3be77d54ce32e8ed31964a0b8e4e4cf05382", [:mix], [], "hexpm", "2d3f1ed87c0a275cd34abd7eadc5fd6bbaecfa75963308fc1d12f8bf40b4fcbe"},
+  "range_extras": {:hex, :range_extras, "0.1.0", "d19dff606e425ea0bf7dd0ea14fe93bf2ef043dcf75a6dde54560230570625c2", [:mix], [], "hexpm", "edc50d31341e1370d009df8b51d7d0e355a966068520ff38e88b8b542953e15c"},
+}

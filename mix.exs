@@ -20,6 +20,7 @@ defmodule Aoc2023.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:parallel_stream, "~> 1.1.0"}
     ]
   end
 end

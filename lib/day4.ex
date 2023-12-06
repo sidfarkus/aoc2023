@@ -29,7 +29,7 @@ defmodule Aoc.Day4 do
           if wins > 0 do
             ((id + 1)..(id + wins)) |>
               Enum.reduce(acc, fn next_card, cards ->
-                Map.update!(cards, next_card, fn {w, c, num} -> {w, c, num + copies}
+                Map.update!(cards, next_card, fn {w, c, num} -> {w, c, num + copies} end)
               end)
           else
             acc

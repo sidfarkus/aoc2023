@@ -13,7 +13,14 @@ defmodule Util do
         String.trim(List.first(splits)) |> supersplit(rest, options)
       end
     else
-      String.trim(input)
+      if (Keyword.get(options, :try_convert_int, false)) do
+        String.trim(input) |> Integer.parse() |> case do
+          :error -> String.trim(input)
+          {i, _} -> i
+        end
+      else
+        String.trim(input)
+      end
     end
   end
   def debug(val, msg) do

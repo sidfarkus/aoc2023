@@ -87,7 +87,7 @@ humidity-to-location map:
       assert(part2(input) == 46)
     end
 
-    @tag timeout: :infinity
+    @tag timeout: 1
     test "real input" do
       IO.puts(part2(File.read!("input/day5")))
     end

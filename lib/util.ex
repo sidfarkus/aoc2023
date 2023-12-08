@@ -4,22 +4,23 @@ defmodule Util do
   import String, only: [split: 3]
 
   def supersplit(input, split_on, options \\ []) do
+    to_trim = Keyword.get(options, :to_trim, " ")
     unless empty?(split_on) do
       {pattern, rest} = pop_at(split_on, 0)
       splits = split(input, pattern, options)
       if length(splits) > 1 do
-        map(splits, &(supersplit(String.trim(&1), rest, options)))
+        map(splits, &(supersplit(String.trim(&1, to_trim) |> String.trim(), rest, options)))
       else
-        String.trim(List.first(splits)) |> supersplit(rest, options)
+        String.trim(List.first(splits),to_trim) |> String.trim() |> supersplit(rest, options)
       end
     else
       if (Keyword.get(options, :try_convert_int, false)) do
-        String.trim(input) |> Integer.parse() |> case do
-          :error -> String.trim(input)
+        String.trim(input, to_trim) |> Integer.parse() |> case do
+          :error -> String.trim(input, to_trim) |> String.trim()
           {i, _} -> i
         end
       else
-        String.trim(input)
+        String.trim(input, to_trim) |> String.trim()
       end
     end
   end

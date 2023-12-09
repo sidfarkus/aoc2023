@@ -10,11 +10,11 @@ defmodule Mix.Tasks.DayGen do
     import Util
 
     def part1(input) do
-      supersplit(input, ["\n"], trim: true)
+      supersplit(input, ["\\n"], trim: true)
     end
 
     def part2(input) do
-      supersplit(input, ["\n"], trim: true)
+      supersplit(input, ["\\n"], trim: true)
     end
   end
   """

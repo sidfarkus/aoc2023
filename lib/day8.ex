@@ -35,7 +35,7 @@ defmodule Aoc.Day8 do
             end
             x -> x
           end)
-          if Enum.all?(new_state, fn {:halt, _} -> true; _ -> false end), do: :halt, else: :cont
+          halt = if Enum.all?(new_state, fn {:halt, _} -> true; _ -> false end), do: :halt, else: :cont
           {halt, new_state}
         end)
         |> Enum.map(fn {_, count} -> count end)
